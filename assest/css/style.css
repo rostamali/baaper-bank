@@ -11,7 +11,16 @@
     box-shadow: 0px 0px 40px rgb(0 0 0 / 15%);
     padding: 50px 20px;
 }
-
+input {
+    width: 70%;
+    border: 1px solid #ccc;
+    height: 38px;
+    padding: 2px 5px 2px 10px;
+    font-size: 16px;
+}
+.input-group input{
+    margin-left: 15%;
+}
 .login-btn{
     background-color: #D73F03;
     border: none;
@@ -25,16 +34,28 @@
     margin-left: 15%;
     margin-top: 10px;
 }
-input {
-    width: 70%;
-    border: 1px solid #ccc;
-    height: 38px;
-    padding: 2px 5px 2px 10px;
-    font-size: 16px;
+@media only screen and (max-width:768px){
+    .login-box{
+        width: 60%;
+    }
 }
-.input-group input{
-    margin-left: 15%;
+@media only screen and (max-width:600px){
+    .login-box{
+        width: 80%;
+    }
+    .input-group input,
+    .login-btn{
+        width: 90%;
+        margin-left: 5%;
+    }
 }
+
+@media only screen and (max-width:425px){
+    .login-box{
+        width: 95%;
+    }
+}
+
 #warning{
     color: red;
     font-size: 12px;
@@ -75,4 +96,9 @@ input {
     border-radius: 15px;
     box-shadow: 0px 0px 20px rgb(0 0 0 / 15%);
     margin-top: 20px;
+}
+@media only screen and (max-width:768px){
+    .banking-box{
+        margin-top: 20px;
+    }
 }
