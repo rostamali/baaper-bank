@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Baaper Bank</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assest/bootstrap/bootstrap.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="assest/css/style.css">
+</head>
+<body>
+    
+    <section>
+        <div class="container mx-auto">
+            <div class="login-box">
+                <h1 class="heading-1 text-center">Login to <span class="text-color">Baaper Bank</span></h1>
+                <div>
+                    <div class="input-group mt-4">
+                        <input type="email" placeholder="Enter email" id="login-email">
+                    </div>
+                    <div class="input-group mt-3">
+                        <input type="password" placeholder="Enter password" id="login-pass">
+                    </div>
+                    <span id="warning"></span>
+                    <button class="login-btn" id="login-btn">Login</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- bootstrap js -->
+    <script src="assest/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- custom js -->
+    <script src="assest/js/login.js"></script>
+
+    <script>
+        const loginEmail = document.getElementById('login-email');
+        const loginPass =  document.getElementById('login-pass');
+        const loginButton =  document.getElementById('login-btn');
+        const warningText =  document.getElementById('warning');
+
+        loginButton.addEventListener('click', function(){
+
+            if(loginEmail.value == 'abc@gmail.com' && loginPass.value == 'tom26'){
+                window.location.href = 'banking.html';
+            }
+            else{
+                warningText.innerText = 'email or password is wrong'
+            }  
+        })
+    </script>
+</body>
+</html>

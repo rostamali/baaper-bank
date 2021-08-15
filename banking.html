@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Baaper Bank</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="assest/bootstrap/bootstrap.min.css">
+    <!-- custom css -->
+    <link rel="stylesheet" href="assest/css/style.css">
+</head>
+<body>
+    
+    <section>
+        <div class="container mx-auto">
+            <h1 class="heading-1 text-center mt-5">My  
+                <span class="text-color">Baaper Bank</span>
+            </h1>
+            <div class="row mt-4">
+                <div class="col-12 col-lg-4">
+                    <div class="banking-box deposit-box">
+                        <h2 class="heading-2 text-white">Deposit</h2>
+                        <h4 class="heading-4 money-text-color">$<span id="deposit-total">00</span></h4>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="banking-box withdraw-box">
+                        <h2 class="heading-2 text-white">Withdraw</h2>
+                        <h4 class="heading-4 money-text-color">$<span id="withdraw-total">00</span></h4>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="banking-box balance-box">
+                        <h2 class="heading-2 text-white">Balance</h2>
+                        <h4 class="heading-4 money-text-color">$<span id="balance-total">1420</span></h4>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="add-deposit-box">
+                        <h3 class="heading-3">Deposit Money</h3>
+                        <div>
+                            <input type="text" placeholder="Enter amount" id="add-deposit-amount">
+                        </div>
+                        <button class="btn btn-primary mt-2" id="deposit-btn">Deposit</button>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="add-withdraw-box">
+                        <h3 class="heading-3">Withdraw Money</h3>
+                        <div>
+                            <input type="text" placeholder="Enter amount" id="add-withdraw-amount">
+                        </div>
+                        <button class="btn btn-warning mt-2" id="withdraw-btn">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- bootstrap js -->
+    <script src="assest/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- custom js -->
+    <script src="assest/js/banking.js"></script>
+
+    <script>
+        const depositBtn =  document.getElementById('deposit-btn');
+        const addDepositAmount = document.getElementById('add-deposit-amount');
+
+        depositBtn.addEventListener('click', function(){
+            const previousDepositAmount =  document.getElementById('deposit-total');
+            const previousDepositAmountNumber = parseFloat(previousDepositAmount.innerText);
+
+            const previousBalanceAmount = document.getElementById('balance-total');
+            const previousBalanceAmountNumber = parseFloat(previousBalanceAmount.innerText);
+
+            const totalDepositAmount = previousDepositAmountNumber + parseFloat(addDepositAmount.value);
+            previousDepositAmount.innerText = totalDepositAmount;
+
+            const totalBalance = previousBalanceAmountNumber + parseFloat(addDepositAmount.value);
+            previousBalanceAmount.innerText = totalBalance;
+
+            // clear input field
+            addDepositAmount.value = '';
+        })
+
+        const withdrawBtn =  document.getElementById('withdraw-btn');
+        const addWithdrawAmount = document.getElementById('add-withdraw-amount');
+        
+        withdrawBtn.addEventListener('click', function(){
+
+            const previousWithdrawAmount = document.getElementById('withdraw-total');
+            const totalWithdrawAmount = parseFloat(previousWithdrawAmount.innerText) + parseFloat(addWithdrawAmount.value);  
+            previousWithdrawAmount.innerText = totalWithdrawAmount;
+            // update balance
+            const updateBalanceAmount = document.getElementById('balance-total');
+            const updateBalanceAmountNumber = parseFloat(updateBalanceAmount.innerText);
+
+            const newTotalBalance = updateBalanceAmountNumber - parseFloat(addWithdrawAmount.value);
+            updateBalanceAmount.innerText = newTotalBalance;
+
+            // clear input field
+            addWithdrawAmount.value = '';
+        })
+
+    </script>
+</body>
+</html>
